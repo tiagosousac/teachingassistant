@@ -1,4 +1,4 @@
-Feature: Auto-avaliação
+﻿Feature: Auto-avaliação
 	As a estudante
 	I want to fazer a auto-avaliação dos meus conhecimentos
     So that eu compare minha avaliação com a do meu professor e veja se existe alguma discrepância entre minha avaliação e a dele.
@@ -32,3 +32,18 @@ Scenario: adicionando notas de auto-avaliação com erro
 	When eu peço ao sistema para que ele preencha as notas de “auto-avaliação” nas metas “1, 2” com “MA, MPA”	
 	Then O sistema retorna uma mensagem que todos os campos precisam ser preenchidos e que gabi é besta.
 	And o estudante “Tiago” tem suas notas de “auto-avaliação” nas metas “1, 2, 3” em branco
+
+Scenario: sem alunos com auto-avaliação discrepantes
+	Given eu estou logado como "Paulo Borba"
+	And estou na página de "alunos"
+	And vejo os alunos "Igor" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MA, MA, MPA, MA, MPA" e auto-avaliação "MA, MA, MA, MPA, MPA", "Tiago" co notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MA, MA, MA, MA, MPA" e auto-avaliação "MA, MA, MA, MA, MPA" e "Diego" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MPA, MPA, MPA, MA, MA" e auto-avaliação "MANA, MANA, MANA, MPA, MPA"
+	When eu seleciono a pagina "alunos com auto-avaliação discrepantes"
+	Then eu vejo a lista vazia
+
+Scenario: alunos com auto-avaliação discrepantes
+	Given eu estou logado como "Paulo Borba"
+	And estou na página de "alunos"
+	And vejo os alunos "Igor" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MANA, MANA, MPA, MA, MPA" e auto-avaliação "MA, MA, MA, MPA, MPA", "Tiago" co notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MA, MA, MA, MA, MPA" e auto-avaliação "MA, MA, MA, MA, MPA" e "Diego" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MPA, MPA, MPA, MA, MA" e auto-avaliação "MANA, MANA, MANA, MPA, MPA"
+	When eu seleciono a pagina "alunos com auto-avaliação discrepantes"
+	Then eu vejo o aluno "Igor" na lista.
+
