@@ -26,9 +26,9 @@ Scenario: adicionando notas de auto-avaliação com erro
 	Then eu estou na tela de “auto-avaliação”
 	And eu vejo uma mensagem de erro sobre o cadastro das notas.
 	
-Scenario: adicionando notas de auto-avaliação com sucesso
+Scenario: adicionando notas de auto-avaliação com erro
 	Given o estudante “Tiago” está cadastrado no sistema
-	e suas notas de “auto-avaliação” nas metas “1, 2, 3” estão em branco.
+	And suas notas de “auto-avaliação” nas metas “1, 2, 3” estão em branco.
 	When eu peço ao sistema para que ele preencha as notas de “auto-avaliação” nas metas “1, 2” com “MA, MPA”	
-	Then O sistema retorna “Todos os campos de auto-avaliação precisam ser preenchidos”.
-	And o estudante “Tiago” tem suas notas de “auto-avaliação” nas metas “1, 2, 3” em branco.
+	Then O sistema retorna uma mensagem que todos os campos precisam ser preenchidos e que gabi é besta.
+	And o estudante “Tiago” tem suas notas de “auto-avaliação” nas metas “1, 2, 3” em branco
