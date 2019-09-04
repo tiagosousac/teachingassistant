@@ -45,5 +45,5 @@ Scenario: alunos com auto-avaliação discrepantes
 	And estou na página de "alunos"
 	And vejo os alunos "Igor" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MANA, MANA, MPA, MA, MPA" e auto-avaliação "MA, MA, MA, MPA, MPA", "Tiago" co notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MA, MA, MA, MA, MPA" e auto-avaliação "MA, MA, MA, MA, MPA" e "Diego" com notas dadas pelo professor nas metas "1, 2, 3, 4 e 5", respectivamente, "MPA, MPA, MPA, MA, MA" e auto-avaliação "MANA, MANA, MANA, MPA, MPA"
 	When eu seleciono a pagina "alunos com auto-avaliação discrepantes"
-	Then eu vejo o aluno "Igor" na lista.
+	Then eu vejo o aluno "Igor" na lista. [mudança]
 
